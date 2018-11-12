@@ -1,0 +1,21 @@
+.dark {
+  color: #FFF;
+  background: black;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.light {
+  color: #000;
+  background: white;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.light > * {
+  border-color: black;
+}
+
+.dark > * {
+  border-color: white;
+}

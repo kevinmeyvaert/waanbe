@@ -1,0 +1,117 @@
+.videoRow {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  animation-name: pageAnimation;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+}
+
+.videoRow:hover .videoPreviewWrapper {
+  transform: rotate(1deg);
+}
+
+.videoRow:hover .videoTitle > a::after {
+  width: 100%;
+}
+
+.videoRow:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.videoColumn {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.videoTitle {
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  margin: 5px;
+}
+
+.videoTitle > a {
+  text-decoration: none;
+}
+
+.videoTitle > a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  margin-top: -5px;
+  transition: width .5s;
+  border-bottom: 2px solid;
+}
+
+.videoMeta {
+  font-family: 'Lora', serif;
+  margin: 0;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.videoCategory {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 12px;
+  border: 1px solid;
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+
+.videoPreviewWrapper {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  transition: .5s;
+}
+
+.videoPreview {
+  max-width: 100%;
+  position: relative;
+  border: 2px solid;
+  z-index: 2;
+}
+
+.videoPreviewWrapper::before {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 10px);
+  border: 2px solid;
+  margin-left: 10px;
+  margin-top: 10px;
+  content: '';
+  animation-name: videoBorder;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  animation-direction: alternate;
+}
+
+@keyframes videoBorder {
+  from {transform: translate(0, 0)}
+  to {transform: translate(10px, 10px)}
+}
+
+@keyframes pageAnimation {
+  from {transform: translateY(50px)}
+  to {transform: translateY(0px)}
+}
+
+@media (max-width: 991px) {
+  .videoRow {
+    flex-direction: column;
+    padding: 0 50px;
+    box-sizing: border-box;
+  }
+  .videoRow:nth-child(odd) {
+    flex-direction: column;
+  }
+  .videoColumn {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}

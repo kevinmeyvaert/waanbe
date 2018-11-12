@@ -1,0 +1,6 @@
+.logoWrap {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0 20px;
+  transition: 1s;
+}
