@@ -29,8 +29,16 @@ class RootIndex extends React.Component {
           </style>
         </Helmet>
         <div className={styles.contactPage}>
-          <h2 className={styles.pageTitle}>Contact</h2>
-          <form className={styles.form} name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+          <h2 className={styles.pageTitle}>Waan</h2>
+          Faster than your shadow - editor / making you say “WAANzin”.
+          made in Antwerp, and for rent.
+          <h2 className={styles.pageTitle} style={{ marginTop: '20px' }}>Contact</h2>
+          hello@waan.be, 
+          +32 495 35 58 31,
+          main base: vooruitzichtstraat 22, 2140 Borgerhout.
+          <h2 className={styles.pageTitle} style={{ marginTop: '20px' }}>Past renders</h2>
+          Zmo | VRT | Woestijnvis | SBS | Colruyt | Carrefour | Wunderman | BBDO | Undefined | Bowling | Red Dust | Vbm | Crammerock | Goose | Lokerse Feesten
+          {/* <form className={styles.form} name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
               <input type="hidden" name="bot-field" />
               <div className={styles.row}>
                 <div className={styles.column}>
@@ -49,7 +57,7 @@ class RootIndex extends React.Component {
               <ul className={styles.actions}>
                 <li><input type="submit" value="Send Message" className={styles.button} /></li>
               </ul>
-          </form>
+          </form> */}
         </div>
       </Layout>
     )

@@ -92,6 +92,10 @@ textarea {
 }
 
 @media (max-width: 991px) {
+  .contactPage {
+    width: 90vw;
+    margin: 0 auto;
+  }
   .form {
     width: 90vw;
   }
