@@ -39,7 +39,7 @@ class VideoTemplate extends React.Component {
           <p className={styles.videoMeta}>{post.client}, {post.date.substr(post.date.length - 4)}, {post.duration}</p>
           <Vimeo
             className={styles.videoFrame}
-            width={typeof window !== undefined && window.innerWidth < 400 ? 400 : 830}
+            width={typeof window !== 'undefined' && window.innerWidth < 400 ? 400 : 830}
             video={post.vimeoId}
             onPause={() => this.setState({ theme: 'light' })}
             onPlay={() => this.setState({ videoIsEnded: false, theme: 'dark' })}
