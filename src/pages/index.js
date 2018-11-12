@@ -30,12 +30,8 @@ class RootIndex extends React.Component {
           @import url('https://fonts.googleapis.com/css?family=Lora:400,400i');
           </style>
         </Helmet>
-        {videos.map(({ node }) => {
-          const url = fetch(`http://vimeo.com/api/v2/video/${node.vimeoId}.json`)
-            .then(response => response.json())
-            .then(json => json[0].thumbnail_large);
-          return <VideoItem node={node} img={url} key={node.title} />
-        }
+        {videos.map(({ node }) => 
+          <VideoItem node={node} key={node.title} />
         )}
       </Layout>
     )
