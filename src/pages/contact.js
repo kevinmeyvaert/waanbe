@@ -37,26 +37,6 @@ class RootIndex extends React.Component {
           main base: Vooruitzichtstraat 22, 2140 Borgerhout (Antwerp).
           <h2 className={styles.pageTitle} style={{ marginTop: '20px' }}>Past renders</h2>
           Zmo &middot; VRT &middot; Woestijnvis &middot; SBS &middot; Colruyt &middot; Carrefour &middot; Wunderman &middot; BBDO &middot; Undefined &middot; Bowling &middot; Red Dust &middot; Vbm &middot; Crammerock &middot; Goose &middot; Lokerse Feesten
-          {/* <form className={styles.form} name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
-              <input type="hidden" name="bot-field" />
-              <div className={styles.row}>
-                <div className={styles.column}>
-                  <label htmlFor="name">Name</label>
-                  <input type="text" name="name" id="name" />
-                </div>
-                <div className={styles.column}>
-                  <label htmlFor="email">Email</label>
-                  <input type="text" name="email" id="email" />
-                </div>
-              </div>
-              <div className={styles.messageRow}>
-                <label htmlFor="message">Message</label>
-                <textarea name="message" id="message" rows="1"></textarea>
-              </div>
-              <ul className={styles.actions}>
-                <li><input type="submit" value="Send Message" className={styles.button} /></li>
-              </ul>
-          </form> */}
         </div>
       </Layout>
     )

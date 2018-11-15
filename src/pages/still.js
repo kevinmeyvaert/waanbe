@@ -40,7 +40,7 @@ class Still extends React.Component {
     const childElements = photos && photos.map(({ node }) => {
       return (
         <li key={node.slug} className={node.size === "big" ? styles.photoItemBig : styles.photoItemSmall}>
-            <Img alt={node.title} fluid={node.photo.fluid} />
+            <Link to={`/still/${node.slug}`}><Img alt={node.title} fluid={node.photo.fluid} /></Link>
         </li>
       )
     });

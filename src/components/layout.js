@@ -11,7 +11,7 @@ class Template extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      theme: 'light',
+      theme: props.theme || 'light',
     };
   }
 
@@ -22,7 +22,7 @@ class Template extends React.Component {
   }
 
   render() {
-    const { location, children } = this.props;
+    const { location, children, clean } = this.props;
     const { theme } = this.state;
     let header
 
@@ -34,16 +34,16 @@ class Template extends React.Component {
     return (
       <Container theme={theme}>
         <main className={styles.wrapper}>
-          <nav className={styles.navigation}>
+          {!clean && <nav className={styles.navigation}>
             <Logo theme={theme} />
             <ul>
               <li><Link to="/" activeClassName={styles.active}>Motion</Link></li>
               <li><Link to="/still" activeClassName={styles.active}>Still</Link></li>
               <li><Link to="/contact" activeClassName={styles.active}>Contact</Link></li>
             </ul>
-          </nav>
+          </nav>}
           {children}
-          <Footer />
+          {!clean && <Footer />}
         </main>
       </Container>
     )
