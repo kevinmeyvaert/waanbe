@@ -1,7 +1,8 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 import Helmet from 'react-helmet'
 import Vimeo from '@u-wave/react-vimeo';
+import KeyHandler, { KEYDOWN } from 'react-key-handler';
 
 import get from 'lodash/get'
 import Img from 'gatsby-image'
@@ -17,12 +18,46 @@ class StillTemplate extends React.Component {
     };
   }
 
+  goBack() {
+    const post = get(this.props, 'data.contentfulStillPortfolio');
+    const allPhotos = get(this.props, 'data.allContentfulStillPortfolio.edges').map(({ node }) => node.slug);
+    const currentIndex = allPhotos.findIndex(photoSlug => photoSlug === post.slug);
+    if (currentIndex === 0) {
+      return navigate(`/still/${allPhotos[allPhotos.length - 1]}`);
+    }
+    return navigate(`/still/${allPhotos[currentIndex - 1]}`);
+  }
+
+  goNext() {
+    const post = get(this.props, 'data.contentfulStillPortfolio');
+    const allPhotos = get(this.props, 'data.allContentfulStillPortfolio.edges').map(({ node }) => node.slug);
+    const currentIndex = allPhotos.findIndex(photoSlug => photoSlug === post.slug);
+    if (currentIndex === (allPhotos.length - 1)) {
+      return navigate(`/still/${allPhotos[0]}`);
+    }
+    return navigate(`/still/${allPhotos[currentIndex + 1]}`);
+  }
+
   render() {
     const { theme } = this.state;
     const post = get(this.props, 'data.contentfulStillPortfolio');
-
     return (
       <Layout location={this.props.location} theme={theme} clean >
+        <KeyHandler
+          keyEventName={KEYDOWN}
+          keyValue="ArrowLeft"
+          onKeyHandle={() => this.goBack()}
+        />
+        <KeyHandler
+          keyEventName={KEYDOWN}
+          keyValue="ArrowRight"
+          onKeyHandle={() => this.goNext()}
+        />
+        <KeyHandler
+          keyEventName={KEYDOWN}
+          keyValue="Escape"
+          onKeyHandle={() => navigate(`/still`)}
+        />
         <div className={styles.stillPage}>
           <h2 className={styles.stillTitle}>{post.title}</h2>
           <Link to="/still"><Img alt={post.title} fluid={post.photo.fluid} /></Link>
@@ -54,6 +89,13 @@ export const pageQuery = graphql`
         slug
       }
       size
+    }
+    allContentfulStillPortfolio(sort: { fields: [date], order: DESC }) {
+      edges {
+        node {
+          slug
+        }
+      }
     }
   }
 `

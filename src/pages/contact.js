@@ -31,10 +31,10 @@ class RootIndex extends React.Component {
         <div className={styles.contactPage}>
           <h2 className={styles.pageTitle}>Waan</h2>
           Faster than your shadow - editor / making you say “WAANzin”.<br/>
-          made in Antwerp, and for rent.
+          Made in Antwerp, and for rent.
           <h2 className={styles.pageTitle} style={{ marginTop: '20px' }}>Contact</h2>
           <p style={{ margin: 0 }}><a href="mailto:hello@waan.be">hello@waan.be</a> &middot; +32 495 35 58 31 &middot; BTW BE 0700.748.685</p>
-          main base: Vooruitzichtstraat 22, 2140 Borgerhout (Antwerp).
+          Main base: Vooruitzichtstraat 22, 2140 Borgerhout (Antwerp).
           <h2 className={styles.pageTitle} style={{ marginTop: '20px' }}>Past renders</h2>
           ZMo &middot; VRT &middot; Woestijnvis &middot; SBS &middot; Colruyt &middot; Carrefour &middot; Wunderman &middot; BBDO &middot; Undefined &middot; Bowling &middot; Red Dust &middot; Vbm &middot; Crammerock &middot; Goose &middot; Lokerse Feesten
         </div>
