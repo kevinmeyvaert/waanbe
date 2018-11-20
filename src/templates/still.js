@@ -18,20 +18,14 @@ class StillTemplate extends React.Component {
     };
   }
 
-  goBack() {
-    const post = get(this.props, 'data.contentfulStillPortfolio');
-    const allPhotos = get(this.props, 'data.allContentfulStillPortfolio.edges').map(({ node }) => node.slug);
-    const currentIndex = allPhotos.findIndex(photoSlug => photoSlug === post.slug);
+  goBack(allPhotos, currentIndex) {
     if (currentIndex === 0) {
       return navigate(`/still/${allPhotos[allPhotos.length - 1]}`);
     }
     return navigate(`/still/${allPhotos[currentIndex - 1]}`);
   }
 
-  goNext() {
-    const post = get(this.props, 'data.contentfulStillPortfolio');
-    const allPhotos = get(this.props, 'data.allContentfulStillPortfolio.edges').map(({ node }) => node.slug);
-    const currentIndex = allPhotos.findIndex(photoSlug => photoSlug === post.slug);
+  goNext(allPhotos, currentIndex) {
     if (currentIndex === (allPhotos.length - 1)) {
       return navigate(`/still/${allPhotos[0]}`);
     }
@@ -41,17 +35,19 @@ class StillTemplate extends React.Component {
   render() {
     const { theme } = this.state;
     const post = get(this.props, 'data.contentfulStillPortfolio');
+    const allPhotos = get(this.props, 'data.allContentfulStillPortfolio.edges').map(({ node }) => node.slug);
+    const currentIndex = allPhotos.findIndex(photoSlug => photoSlug === post.slug);
     return (
       <Layout location={this.props.location} theme={theme} clean >
         <KeyHandler
           keyEventName={KEYDOWN}
           keyValue="ArrowLeft"
-          onKeyHandle={() => this.goBack()}
+          onKeyHandle={() => this.goBack(allPhotos, currentIndex)}
         />
         <KeyHandler
           keyEventName={KEYDOWN}
           keyValue="ArrowRight"
-          onKeyHandle={() => this.goNext()}
+          onKeyHandle={() => this.goNext(allPhotos, currentIndex)}
         />
         <KeyHandler
           keyEventName={KEYDOWN}
