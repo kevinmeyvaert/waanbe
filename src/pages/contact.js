@@ -30,6 +30,7 @@ class RootIndex extends React.Component {
         </Helmet>
         <div className={styles.contactPage}>
           <h2 className={styles.pageTitle}>Waan</h2>
+          David Struik<br/>
           Faster than your shadow - editor / making you say “WAANzin”.<br/>
           Made in Antwerp, and for rent.
           <h2 className={styles.pageTitle} style={{ marginTop: '20px' }}>Contact</h2>
